@@ -15,7 +15,7 @@ body {
   background: transparent;
 }
 
-body::before {
+/* body::before {
   content: "";
   position: fixed;
   background: #010e1b;
@@ -24,7 +24,19 @@ body::before {
   right: 0;
   top: 0;
   height: 100vh;
+} */
+body::before {
+  content: "";
+  position: fixed;
+  background: #010e1b url('../img/background/bg.png') no-repeat center center;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1; /* Ensure it stays behind all other elements */
 }
+
 
 @media (min-width: 1024px) {
   body::before {
@@ -57,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
 
-.background-image {
+/* .background-image {
   position: absolute;
   display: block;
   margin-left: auto;
@@ -66,7 +78,30 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   object-fit: cover;
   filter: contrast(150%);
+} */
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: #010e1b url('../img/background/bg.png') no-repeat center center; */
+  background-size: cover;
+  
 }
+.background-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Adjust transparency as needed */
+  /* z-index: 1; */
+}
+
+
 
 svg {
   fill: currentColor;
@@ -88,6 +123,7 @@ svg {
 #header * {
   transition: ease-in-out 0s;
 }
+
 
 #header h1 {
   font-size: 48px;
